@@ -16,7 +16,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = User::orderBy('id', 'desc')->paginate(5);
         return view('users.index', compact('data'))
@@ -124,3 +124,4 @@ class UserController extends Controller
         return redirect()->route('users.index')
         ->with('Success', 'User deleted successfully');
     }
+}

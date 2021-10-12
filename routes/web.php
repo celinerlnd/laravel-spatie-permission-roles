@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function(){
-    Route::resource('users', UserController::class);
-    Route::resource('roles', RoleController::class);
-    Route::resource('products', ProductController::class);
+    Route::resource('users', 'App\Http\Controllers\UserController');
+    Route::resource('roles', 'App\Http\Controllers\RoleController');
+    Route::resource('products', 'App\Http\Controllers\ProductController');
 });
